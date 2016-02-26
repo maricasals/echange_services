@@ -4,11 +4,11 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>echange.entity.Effacemoi</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Echange_Services"/>
-      <property name="javax.persistence.jdbc.user" value="Echange_Services"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/echange_services"/>
+      <property name="javax.persistence.jdbc.user" value="echange_services"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.password" value="Echange_Services"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.jdbc.password" value="echange_services"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
   <persistence-unit name="PU" transaction-type="RESOURCE_LOCAL">

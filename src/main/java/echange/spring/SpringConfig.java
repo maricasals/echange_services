@@ -22,8 +22,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan(basePackages="echange")
-@EnableJpaRepositories(basePackages = "echange")
+@ComponentScan(basePackages="echangeservices")
+@EnableJpaRepositories(basePackages = "echangeservices")
 public class SpringConfig {
     
     @Bean
