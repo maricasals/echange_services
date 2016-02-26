@@ -6,7 +6,7 @@
 package echange.entity;
 
 import java.io.Serializable;
-import javax.persistence.Column;
+import java.security.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,20 +17,16 @@ import javax.persistence.Id;
  * @author admin
  */
 @Entity
-public class Utilisateur implements Serializable {
+public class Paiement implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(unique = true)
-    private String email;
+    private Long montant;
+    private Timestamp dataCreation;
     
-    private String mdp;
-    
-    private  TypeUtil type;
-    private Integer solde;
 
     public Long getId() {
         return id;
@@ -50,10 +46,10 @@ public class Utilisateur implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Utilisateur)) {
+        if (!(object instanceof Paiement)) {
             return false;
         }
-        Utilisateur other = (Utilisateur) object;
+        Paiement other = (Paiement) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -62,7 +58,7 @@ public class Utilisateur implements Serializable {
 
     @Override
     public String toString() {
-        return "echange.entity.Utilisateur[ id=" + id + " ]";
+        return "echange.entity.Paiement[ id=" + id + " ]";
     }
     
 }
