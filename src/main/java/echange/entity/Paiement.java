@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -27,6 +29,13 @@ public class Paiement implements Serializable {
     private Long montant;
     private Timestamp dataCreation;
     
+    @ManyToOne
+    @JoinColumn(name = "PAIEMENT_RECU")
+    private Utilisateur destinataire;
+    
+    @ManyToOne
+    @JoinColumn(name = "PAYEMENT_EMIS")
+    private Utilisateur emeteur;
 
     public Long getId() {
         return id;

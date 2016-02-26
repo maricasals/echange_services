@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -29,6 +31,10 @@ public class Annonce implements Serializable {
     private EnumAnnonce type;
     private Integer prix;
     private Timestamp dateCreation;
+    
+    @ManyToOne
+    @JoinColumn(name = "UTILISATEUR")
+    private Utilisateur utilisateur;
 
     public String getTitre() {
         return titre;

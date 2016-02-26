@@ -6,11 +6,16 @@
 package echange.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,6 +28,25 @@ public class Utilisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @OneToMany(mappedBy = "annonces")
+    private List<Annonce> annonces = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "emeteur")
+    private List<Message> messagesPostes = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "destinataire")
+    private List<Message> messagesReçu = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "emeteur")
+    private List<Paiement> paiementEmis = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "destinataire")
+    private List<Paiement> paiementReçu = new ArrayList<>();
+    
+    @ManyToOne
+    @JoinColumn(name = "utilisateur")
+    private Lieu lieu;
     
     @Column(unique = true)
     private String email;
