@@ -5,11 +5,16 @@
  */
 package echange.test;
 
+import echange.entity.Utilisateur;
+import echange.exception.ExceptionUtilisateurInexistant;
+import echange.service.EnvoieMessage;
+import echange.service.UtilisateurService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import echange.spring.SpringConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -25,11 +30,22 @@ public class SpringTest {
     @PersistenceContext
     private EntityManager em;
     
+    @Autowired
+    EnvoieMessage envoieMessage;
+    
+    @Autowired
+    UtilisateurService utilisateurService;
+    
     @Test
-    public void doNadaOK(){
-        
-//       Utilisateur u = new Utilisateur(new Lieu().setNom("Barcelone"), new ArrayList<>(), "email@gmail.com", "mdp", TypeUtil.ADMIN, 12);
-//       Utilisateur u = new Utilisateur(lieu, commentaires, email, mdp, TypeUtil.ADMIN, Integer.SIZE)
+    public void envoieMessage() throws ExceptionUtilisateurInexistant{
+        Utilisateur u1 = new Utilisateur();
+        u1.setId(1L);
+        utilisateurService.save(u1);
+        Utilisateur u2 = new Utilisateur();
+        u2.setId(2L);
+        utilisateurService.save(u2);
+        envoieMessage.envoieMessage(1L, 2L, "qefesjkfe", "ypoooooooooooo");
+
     }
     
 }

@@ -28,7 +28,7 @@ public class Lieu implements Serializable {
     
     private String nom;
     
-    @OneToMany(mappedBy ="utilisateur")
+    @OneToMany(mappedBy ="lieu")
     private List<Utilisateur> utilisateur= new  ArrayList<>();
 
     public Long getId() {
