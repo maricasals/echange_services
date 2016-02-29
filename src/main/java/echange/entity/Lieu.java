@@ -54,6 +54,13 @@ public class Lieu implements Serializable {
     public void setUtilisateur(List<Utilisateur> utilisateur) {
         this.utilisateur = utilisateur;
     }
+
+    public Lieu(String nom) {
+        this.nom = nom;
+    }
+
+    public Lieu() {
+    }
     
     
 

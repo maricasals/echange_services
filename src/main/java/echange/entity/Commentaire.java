@@ -84,6 +84,15 @@ public class Commentaire implements Serializable {
     public void setCommentaireAnnonce(Annonce commentaireAnnonce) {
         this.commentaireAnnonce = commentaireAnnonce;
     }
+
+    public Commentaire(String contenu) {
+        this.contenu = contenu;
+    }
+
+    public Commentaire() {
+    }
+    
+    
     
     
 
