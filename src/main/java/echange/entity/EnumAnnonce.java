@@ -10,5 +10,6 @@ package echange.entity;
  * @author admin
  */
 public enum EnumAnnonce {
-    
+    OFFRE,
+    DEMANDE;
 }
