@@ -7,6 +7,7 @@ package echange.service;
 
 import echange.entity.Commentaire;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *

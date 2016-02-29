@@ -44,6 +44,16 @@ public class Annonce implements Serializable {
     @ManyToOne
     @JoinColumn(name = "CATEGORIE")
     private Categorie categories;
+
+    public Annonce(Long id, String titre, String contenu, Integer prix) {
+        this.id = id;
+        this.titre = titre;
+        this.contenu = contenu;
+        this.prix = prix;
+    }
+
+    public Annonce() {
+    }
     
 
     public String getTitre() {
