@@ -7,12 +7,14 @@ package echange.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -35,6 +37,14 @@ public class Annonce implements Serializable {
     @ManyToOne
     @JoinColumn(name = "UTILISATEUR")
     private Utilisateur utilisateur;
+    
+    @OneToMany(mappedBy = "commentaireAnnonce")
+    private List<Commentaire> commentaires;
+    
+    @ManyToOne
+    @JoinColumn(name = "CATEGORIE")
+    private Categorie categories;
+    
 
     public String getTitre() {
         return titre;
@@ -84,6 +94,32 @@ public class Annonce implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public List<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(List<Commentaire> commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public Categorie getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Categorie categories) {
+        this.categories = categories;
+    }
+    
+    
 
     @Override
     public int hashCode() {

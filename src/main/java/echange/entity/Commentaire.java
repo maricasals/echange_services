@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,6 +28,14 @@ public class Commentaire implements Serializable {
     private String contenu;
     private Integer note;
     private Timestamp dateCreation;
+    
+    @ManyToOne
+    @JoinColumn(name = "UTILISATEUR")
+    private Utilisateur commentairePoste;
+    
+    @ManyToOne
+    @JoinColumn(name = "ANNONCE")
+    private Annonce commentaireAnnonce;
 
     public String getContenu() {
         return contenu;
@@ -58,6 +68,24 @@ public class Commentaire implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Utilisateur getCommentairePoste() {
+        return commentairePoste;
+    }
+
+    public void setCommentairePoste(Utilisateur commentairePoste) {
+        this.commentairePoste = commentairePoste;
+    }
+
+    public Annonce getCommentaireAnnonce() {
+        return commentaireAnnonce;
+    }
+
+    public void setCommentaireAnnonce(Annonce commentaireAnnonce) {
+        this.commentaireAnnonce = commentaireAnnonce;
+    }
+    
+    
 
     @Override
     public int hashCode() {

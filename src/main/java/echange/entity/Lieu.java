@@ -39,6 +39,24 @@ public class Lieu implements Serializable {
         this.id = id;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public List<Utilisateur> getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(List<Utilisateur> utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 0;

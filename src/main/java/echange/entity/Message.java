@@ -32,11 +32,11 @@ public class Message implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "MESSAGEPOSTE")
-    private Utilisateur emeteur;
+    private Utilisateur emeteurMessage;
     
     @ManyToOne
     @JoinColumn(name = "MESSAGERECU")
-    private Utilisateur destinataire;
+    private Utilisateur destinataireMessage;
     
     
     public String getTitre() {
@@ -78,6 +78,24 @@ public class Message implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Utilisateur getEmeteurMessage() {
+        return emeteurMessage;
+    }
+
+    public void setEmeteurMessage(Utilisateur emeteurMessage) {
+        this.emeteurMessage = emeteurMessage;
+    }
+
+    public Utilisateur getDestinataireMessage() {
+        return destinataireMessage;
+    }
+
+    public void setDestinataireMessage(Utilisateur destinataireMessage) {
+        this.destinataireMessage = destinataireMessage;
+    }
+    
+    
 
     @Override
     public int hashCode() {

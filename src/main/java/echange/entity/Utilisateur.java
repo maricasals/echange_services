@@ -29,24 +29,27 @@ public class Utilisateur implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @OneToMany(mappedBy = "annonces")
+    @OneToMany(mappedBy = "utilisateur")
     private List<Annonce> annonces = new ArrayList<>();
     
-    @OneToMany(mappedBy = "emeteur")
+    @OneToMany(mappedBy = "emeteurMessage")
     private List<Message> messagesPostes = new ArrayList<>();
     
-    @OneToMany(mappedBy = "destinataire")
+    @OneToMany(mappedBy = "destinataireMessage")
     private List<Message> messagesReçu = new ArrayList<>();
     
-    @OneToMany(mappedBy = "emeteur")
+    @OneToMany(mappedBy = "emeteurPaiement")
     private List<Paiement> paiementEmis = new ArrayList<>();
     
-    @OneToMany(mappedBy = "destinataire")
+    @OneToMany(mappedBy = "destinatairePaiement")
     private List<Paiement> paiementReçu = new ArrayList<>();
     
     @ManyToOne
-    @JoinColumn(name = "utilisateur")
+    @JoinColumn(name = "LIEUX")
     private Lieu lieu;
+    
+    @OneToMany(mappedBy = "commentairePoste")
+    private List<Commentaire> commentaires;
     
     @Column(unique = true)
     private String email;
@@ -88,5 +91,106 @@ public class Utilisateur implements Serializable {
     public String toString() {
         return "echange.entity.Utilisateur[ id=" + id + " ]";
     }
+
+    public List<Annonce> getAnnonces() {
+        return annonces;
+    }
+
+    public void setAnnonces(List<Annonce> annonces) {
+        this.annonces = annonces;
+    }
+
+    public List<Message> getMessagesPostes() {
+        return messagesPostes;
+    }
+
+    public void setMessagesPostes(List<Message> messagesPostes) {
+        this.messagesPostes = messagesPostes;
+    }
+
+    public List<Message> getMessagesReçu() {
+        return messagesReçu;
+    }
+
+    public void setMessagesReçu(List<Message> messagesReçu) {
+        this.messagesReçu = messagesReçu;
+    }
+
+    public List<Paiement> getPaiementEmis() {
+        return paiementEmis;
+    }
+
+    public void setPaiementEmis(List<Paiement> paiementEmis) {
+        this.paiementEmis = paiementEmis;
+    }
+
+    public List<Paiement> getPaiementReçu() {
+        return paiementReçu;
+    }
+
+    public void setPaiementReçu(List<Paiement> paiementReçu) {
+        this.paiementReçu = paiementReçu;
+    }
+
+    public Lieu getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(Lieu lieu) {
+        this.lieu = lieu;
+    }
+
+    public List<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(List<Commentaire> commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public TypeUtil getType() {
+        return type;
+    }
+
+    public void setType(TypeUtil type) {
+        this.type = type;
+    }
+
+    public Integer getSolde() {
+        return solde;
+    }
+
+    public void setSolde(Integer solde) {
+        this.solde = solde;
+    }
+
+    public Utilisateur(Lieu lieu, List<Commentaire> commentaires, String email, String mdp, TypeUtil type, Integer solde) {
+        this.lieu = lieu;
+        this.commentaires = commentaires;
+        this.email = email;
+        this.mdp = mdp;
+        this.type = type;
+        this.solde = solde;
+    }
+
+    public Utilisateur() {
+    }
+    
     
 }

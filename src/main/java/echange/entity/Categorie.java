@@ -6,11 +6,13 @@
 package echange.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -25,6 +27,9 @@ public class Categorie implements Serializable {
     private Long id;
     @Column(unique = true)
     private String nom;
+    
+    @OneToMany(mappedBy = "categories")
+    private List<Annonce> annonces;
 
     public Long getId() {
         return id;
@@ -58,5 +63,22 @@ public class Categorie implements Serializable {
     public String toString() {
         return "echange.entity.Categorie[ id=" + id + " ]";
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public List<Annonce> getAnnonces() {
+        return annonces;
+    }
+
+    public void setAnnonces(List<Annonce> annonces) {
+        this.annonces = annonces;
+    }
+    
     
 }

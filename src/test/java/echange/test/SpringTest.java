@@ -28,6 +28,8 @@ public class SpringTest {
     @Test
     public void doNadaOK(){
         
+//       Utilisateur u = new Utilisateur(new Lieu().setNom("Barcelone"), new ArrayList<>(), "email@gmail.com", "mdp", TypeUtil.ADMIN, 12);
+//       Utilisateur u = new Utilisateur(lieu, commentaires, email, mdp, TypeUtil.ADMIN, Integer.SIZE)
     }
     
 }

@@ -31,11 +31,11 @@ public class Paiement implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "PAIEMENT_RECU")
-    private Utilisateur destinataire;
+    private Utilisateur destinatairePaiement;
     
     @ManyToOne
     @JoinColumn(name = "PAYEMENT_EMIS")
-    private Utilisateur emeteur;
+    private Utilisateur emeteurPaiement;
 
     public Long getId() {
         return id;
@@ -44,6 +44,40 @@ public class Paiement implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Long getMontant() {
+        return montant;
+    }
+
+    public void setMontant(Long montant) {
+        this.montant = montant;
+    }
+
+    public Timestamp getDataCreation() {
+        return dataCreation;
+    }
+
+    public void setDataCreation(Timestamp dataCreation) {
+        this.dataCreation = dataCreation;
+    }
+
+    public Utilisateur getDestinatairePaiement() {
+        return destinatairePaiement;
+    }
+
+    public void setDestinatairePaiement(Utilisateur destinatairePaiement) {
+        this.destinatairePaiement = destinatairePaiement;
+    }
+
+    public Utilisateur getEmeteurPaiement() {
+        return emeteurPaiement;
+    }
+
+    public void setEmeteurPaiement(Utilisateur emeteurPaiement) {
+        this.emeteurPaiement = emeteurPaiement;
+    }
+    
+    
 
     @Override
     public int hashCode() {
