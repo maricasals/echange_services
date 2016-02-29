@@ -47,12 +47,12 @@ public class DBService{
     
     public void supprimerTout(){
         commentaireService.deleteAll();
-//        annonceService.deleteAll();
-//        messageService.deleteAll();
-//        paiementService.deleteAll();
-//        utilisateurService.deleteAll();
-//        lieuService.deleteAll();
-//        categorieService.deleteAll();
+        annonceService.deleteAll();
+        messageService.deleteAll();
+        paiementService.deleteAll();
+        utilisateurService.deleteAll();
+        lieuService.deleteAll();
+        categorieService.deleteAll();
     }
 
 }

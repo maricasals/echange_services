@@ -7,11 +7,13 @@ package echange.test;
 
 import echange.entity.Utilisateur;
 import echange.exception.ExceptionUtilisateurInexistant;
+import echange.service.DBService;
 import echange.service.EnvoieMessage;
 import echange.service.UtilisateurService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import echange.spring.SpringConfig;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,14 @@ public class SpringTest {
     @Autowired
     UtilisateurService utilisateurService;
     
+    @Autowired
+    private DBService dbService;
+    
+    @Before
+    public void beforeTout(){
+        dbService.supprimerTout();
+    }
+    
     @Test
     public void envoieMessage() throws ExceptionUtilisateurInexistant{
         Utilisateur u1 = new Utilisateur();
@@ -47,5 +57,6 @@ public class SpringTest {
         envoieMessage.envoieMessage(1L, 2L, "qefesjkfe", "ypoooooooooooo");
 
     }
+    
     
 }
