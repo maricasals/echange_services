@@ -13,14 +13,14 @@ import java.time.Instant;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author admin
  */
-@Component
-public class EnvoieMessage {
+@Service
+public class EnvoieMessageService {
     
     @PersistenceContext
     private EntityManager em;
